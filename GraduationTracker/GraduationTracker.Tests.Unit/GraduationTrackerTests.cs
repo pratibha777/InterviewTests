@@ -78,11 +78,15 @@ namespace GraduationTracker.Tests.Unit
                 graduated.Add(tracker.HasGraduated(diploma, student));      
             }
 
-            
-            Assert.IsFalse(graduated.Any());
+            Assert.IsFalse(graduated.Any(g => g.Item2.Equals(STANDING.Remedial)));
 
-        }
-
-
+            Assert.IsFalse(tracker.HasGraduated(diploma, students.FirstOrDefault(s=>s.Id.Equals(4))).Item1); //Student with Id=4 has not graduated
+            Assert.IsTrue(tracker.HasGraduated(diploma, students.FirstOrDefault(s => s.Id.Equals(1))).Item1); //Student with Id=1 has not graduated
+            Assert.IsTrue(tracker.HasGraduated(diploma, students.FirstOrDefault(s => s.Id.Equals(2))).Item1); //Student with Id=2 has not graduated
+            Assert.IsTrue(tracker.HasGraduated(diploma, students.FirstOrDefault(s => s.Id.Equals(3))).Item1); //Student with Id=3 has not graduated
+            Assert.AreEqual(1, graduated.FindAll(grad =>grad.Item1.Equals(false)).Count); //One student has not graduated
+            Assert.AreEqual(3, graduated.FindAll(grad => grad.Item1.Equals(true)).Count); //Three students have graduated
+          
+        }        
     }
 }

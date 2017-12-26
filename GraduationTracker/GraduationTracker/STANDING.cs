@@ -3,8 +3,8 @@
     public enum STANDING
     {
         None,
-        SumaCumLaude,
-        MagnaCumLaude,
+        SumaCumLaude, //highest honors
+        MagnaCumLaude, // high honors
         Average,
         Remedial
     }

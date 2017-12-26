@@ -13,13 +13,15 @@ namespace GraduationTracker
             var students = GetStudents();
             Student student = null;
 
-            for (int i = 0; i < students.Length; i++)
-            {
-                if (id == students[i].Id)
-                {
-                    student = students[i];
-                }
-            }
+            student = students.FirstOrDefault(s => s.Id.Equals(id));
+
+            //for (int i = 0; i < students.Length; i++)
+            //{
+            //    if (id == students[i].Id)
+            //    {
+            //        student = students[i];
+            //    }
+            //}
             return student;
         }
 
@@ -28,13 +30,15 @@ namespace GraduationTracker
             var diplomas = GetDiplomas();
             Diploma diploma = null;
 
-            for (int i = 0; i < diplomas.Length; i++)
-            {
-                if (id == diplomas[i].Id)
-                {
-                    diploma = diplomas[i];
-                }
-            }
+            diploma = diplomas.FirstOrDefault(d => d.Id.Equals(id));
+
+            //for (int i = 0; i < diplomas.Length; i++)
+            //{
+            //    if (id == diplomas[i].Id)
+            //    {
+            //        diploma = diplomas[i];
+            //    }
+            //}
             return diploma;
 
         }
@@ -44,13 +48,15 @@ namespace GraduationTracker
             var requirements = GetRequirements();
             Requirement requirement = null;
 
-            for (int i = 0; i < requirements.Length; i++)
-            {
-                if (id == requirements[i].Id)
-                {
-                    requirement = requirements[i];
-                }
-            }
+            requirement = requirements.FirstOrDefault(r => r.Id.Equals(id));
+
+            //for (int i = 0; i < requirements.Length; i++)
+            //{
+            //    if (id == requirements[i].Id)
+            //    {
+            //        requirement = requirements[i];
+            //    }
+            //}
             return requirement;
         }
 
